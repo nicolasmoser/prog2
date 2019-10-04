@@ -16,4 +16,4 @@ Mittels einer Software soll es Arbeitern möglich sein, eine Übersicht über Ih
 Diese Punkte sollen wenn möglich grafisch in einem Dahsboard erscheinen.
 
 ### Workflow
-![Testbild](test.png)
+![Workflow](Workflow.jpg)
