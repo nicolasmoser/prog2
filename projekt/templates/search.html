@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <br>
+            <h1>Herzlich Willkommen!</h1>
+            <br><br>
+            <h5>Sofern Du die initiale Dateneingabe getätigt hast, schreibe bitte deinen Namen in das Feld.</h5>
+            <br><br>
+            <h5>Solltest Du dies noch gemacht haben, dann klicke <a href="{{ url_for('add') }}">hier</a> , um mit der Dateneingabe zu starten.</h5>
+            <br><hr><br>
+            <form method="POST">
+                <div class="form-group mt-3">
+                    <input class="form-control" type="search" placeholder="Name" name="name" aria-label="Search">
+                </div>
+                <button class="btn btn-outline-success" type="submit">Log In</button>
+            </form>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

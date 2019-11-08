@@ -6,8 +6,23 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-12 mb-3">
-            <h1>Zeitrechner</h1>
+            <h1>Datenbank</h1>
+            <hr>
         </div>
+        {% if telbuch %}
+            {% for key, value in telbuch.items() %}
+                <div class="col-12 mb-3">
+                    <h6>{{ value['name'] }}</h6>
+                    <p>Ziel pro Tag: {{ value['hours']}} Stunden</p>
+                    <p>Anzahl Arbeitstage pro Monat: {{ value['days']}}</p>
+                    <p>Stundenlohn: {{ value['salary']}} CHF</p>
+                    <hr>
+                </div>
+                
+            {% endfor %}
+        {% else %}
+                <h3>Keine Einträge vorhanden</h3>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
