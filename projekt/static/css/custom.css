@@ -1,0 +1,21 @@
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+main {
+  padding-bottom: 7rem;    /* Footer height */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4rem;            /* Footer height */
+  background-color: #343a40;
+  color:#fff;
+}
+
+.card-vote {
+  min-height: 150px !important
+}

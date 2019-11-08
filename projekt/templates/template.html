@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Import the Bootstrap stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+    <!-- Import our custom stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+    <script src="https://kit.fontawesome.com/187e24252e.js" crossorigin="anonymous"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div id="page-container">
+        {% include "navigation_template.html" %}
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer class="text-center">
+            <br>
+            <p>Made with &hearts;</p>
+        </footer>
+    </div>
+    <!-- Import jquery 3.3.1 slim min -->
+    <script src="{{ url_for('static', filename='js/jquery-3.4.0.slim.min.js') }}"></script>
+    <!-- Import Bootstrap bundle -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- Import our custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+</body>
+</html>
