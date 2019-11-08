@@ -20,8 +20,9 @@ def index():
 def search(name=None):
     if (request.method == 'POST'):
         person_eintrag = telefonbuch.person_suchen(request.form)
+        name = request.form.get('name')
         print(person_eintrag)
-        return render_template("telefonbuch.html", telbuch=person_eintrag)
+        return render_template("funktion.html", value=person_eintrag[name])
 
     return render_template("search.html")
 
