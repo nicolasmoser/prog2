@@ -9,10 +9,13 @@ from libs import database
 app = Flask("database")
 
 @app.route("/")
-@app.route("/index")
 def index():
-    telbuchdaten = database.database_lesen()
-    return render_template("database.html", telbuch=telbuchdaten)
+    return render_template("index.html")
+
+@app.route("/database_data")
+def database_data():
+    users_data = database.database_lesen()
+    return render_template("database.html", users=users_data)
 
 
 @app.route("/search/<name>")

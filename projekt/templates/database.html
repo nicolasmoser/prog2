@@ -9,8 +9,8 @@
             <h1>Datenbank</h1>
             <hr>
         </div>
-        {% if telbuch %}
-            {% for key, value in telbuch.items() %}
+        {% if users %}
+            {% for key, value in users.items() %}
                 <div class="col-12 mb-3">
                     <h6>{{ value['name'] }}</h6>
                     <p>Ziel pro Tag: {{ value['hours']}} Stunden</p>
