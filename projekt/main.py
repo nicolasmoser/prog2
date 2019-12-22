@@ -14,28 +14,23 @@ def index():
 
 @app.route("/database_data")
 def database_data():
-    users_data = database.database_lesen()
+    users_data = database.database_read()
     return render_template("database.html", users=users_data)
-
-
-@app.route("/search/<name>")
-@app.route("/search", methods=['GET', 'POST'])
-def search(name=None):
-    if (request.method == 'POST'):
-        person_eintrag = database.person_suchen(request.form)
-        name = request.form.get('name')
-        print(person_eintrag)
-        return render_template("tracker.html", value=person_eintrag[name])
-
-    return render_template("index.html")
+    
 
 @app.route("/add", methods=['GET', 'POST']) 
 def add():
-    if (request.method == 'POST'):
-        database.eintrag_speichern_von_formular(request.form)
-        return redirect("/")
+    if request.method == 'GET':
+        return render_template("add.html")
+    else:
+        name = request.form.get('name')
+        hours = request.form.get('hours')
+        days = request.form.get('days')
+        salary = request.form.get('salary')
+        database.add_user(name, hours, days, salary)
+        return redirect(url_for('index'))
 
-    return render_template("add.html")
+    
 
 
 

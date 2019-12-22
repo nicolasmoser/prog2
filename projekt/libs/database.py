@@ -1,6 +1,6 @@
 import json
 
-def database_lesen():
+def database_read():
     data = {}
     try:
         with open('database.txt', "r") as open_file:
@@ -10,28 +10,24 @@ def database_lesen():
     finally:
         return data
 
-def eintrag_speichern(name, stunden, tage, lohn):
-    database = database_lesen()
-    database[name] = {"name": name, "hours": stunden, "days": tage, "salary": lohn}   
-    print(database)
-    with open('database.txt', "w", encoding="utf-8") as open_file:
-        json.dump(database, open_file)
+def database_save(data):
+    open_file = open('database.txt', "w", encoding="utf-8")  
+    data_formatted = json.dumps(data, indent=2)
+    open_file.write(data_formatted)
+    open_file.close()
 
-def eintrag_speichern_von_formular(form_request):
-    print(form_request)
-    name = form_request.get('name')
-    hours = form_request.get('hours')
-    days = form_request.get('days')
-    salary = form_request.get('salary')
-    eintrag_speichern(name, hours, days, salary)
+def add_user(name, stunden, tage, lohn):
+    data = database_read()
+    data[name] = {"name": name, "hours": stunden, "days": tage, "salary": lohn}   
+    print(data)
+    database_save(data)
 
-
-def person_suchen(form_request):
-    database = database_lesen()
-    name = form_request.get('name')
-
+def get_user(name):
+    database = database_read()
     if name in database:
-        return {name: database[name]}
+        return database[name]
+    else:
+        return None
 
     
 
