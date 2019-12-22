@@ -13,7 +13,7 @@
             <br><br>
             <h5>Solltest Du dies noch gemacht haben, dann klicke <a href="{{ url_for('add') }}">hier</a> , um mit der Dateneingabe zu starten.</h5>
             <br><hr><br>
-            <form method="POST">
+            <form method="POST" action="{{ url_for('login') }}">
                 <div class="form-group mt-3">
                     <input class="form-control" type="search" placeholder="Name" name="name" aria-label="Search">
                 </div>

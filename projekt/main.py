@@ -16,7 +16,7 @@ def index():
 def database_data():
     users_data = database.database_read()
     return render_template("database.html", users=users_data)
-    
+
 
 @app.route("/add", methods=['GET', 'POST']) 
 def add():
@@ -30,8 +30,24 @@ def add():
         database.add_user(name, hours, days, salary)
         return redirect(url_for('index'))
 
-    
+@app.route("/login", methods=['POST'])
+def login():
+    name = request.form.get('name')
+    user_data = database.get_user(name)
+    if user_data:
+        return redirect(url_for('tracker', name=name))
+    else:
+        return redirect(url_for('index'))
 
+@app.route('/tracker')
+def tracker():
+    name = request.args.get('name')
+    user_data = database.get_user(name)
+    if 'start_time' in user_data and 'end_time' in user_data:
+        return redirect (url_for('result', name=name))
+    else:
+        return render_template("tracker.html", user=user_data)
+ 
 
 
 if __name__ == "__main__":

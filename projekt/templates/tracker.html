@@ -10,16 +10,14 @@
             <h1>Hallo {{ value['name'] }}!</h1>
             <br><br>
             <h5>Drücke auf START, sobald Du mit der Arbeit beginnst.</h5>
-            <br>
-            <form method="POST">
-                    <button class="btn btn-outline-success" type="submit">START</button>
+            <form method="POST" action="{{ url_for('start', name=user['name']) }}">
+                <button class="btn btn-outline-success" type="submit">START</button>
                 </form>
                 <br><hr><br>
             <h5>Sobald Du die Arbeit beendet hast, drücke auf ENDE.</h5>
-            <br>
-            <form method="POST">
-                    <button type="button" class="btn btn-outline-danger">ENDE</button>
-            </form>
+            <form method="POST" action="{{ url_for('end', name=user['name']) }}">
+                    <button class="btn btn-outline-success" type="submit">ENDE</button>
+                    </form>
             <br><hr>
         </div>
         
