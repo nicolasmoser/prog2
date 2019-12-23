@@ -47,8 +47,18 @@ def tracker():
         return redirect (url_for('result', name=name))
     else:
         return render_template("tracker.html", user=user_data)
- 
 
+@app.route("/start", methods=['POST'])
+def start():
+    name = request.args.get('name')
+    database.start_time(name)
+    return redirect(url_for('tracker', name=name))
+
+@app.route("/end", methods=['POST'])
+def end():
+    name = request.args.get('name')
+    database.end_time(name)
+    return redirect(url_for('result', name=name))
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

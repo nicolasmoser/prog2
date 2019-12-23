@@ -1,13 +1,13 @@
 {% extends "template.html" %}
 
-{% block title %}Search{% endblock %}
+{% block title %}Tracker{% endblock %}
 
 {% block main %}
 <div class="container mt-5">
     <div class="row">
         <div class="col-12 mb-3">
             <br>
-            <h1>Hallo {{ value['name'] }}!</h1>
+            <h1>Hallo {{ user['name'] }}!</h1>
             <br><br>
             <h5>Drücke auf START, sobald Du mit der Arbeit beginnst.</h5>
             <form method="POST" action="{{ url_for('start', name=user['name']) }}">
