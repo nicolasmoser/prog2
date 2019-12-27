@@ -1,4 +1,5 @@
 import json
+import time
 
 def database_read(): # Funktion, die die Datenbank liest
     data = {} # Leeres Dicitionary erstellen mit der Bennenung "data".
@@ -30,4 +31,19 @@ def get_user(name): # Funktion, die den Usernamen von der Datenbank ausgibt
         return None # Wenn nein, gibt er nichts zurück.
 
     
+def start_time(time): # Funktion, die einem bestehenden User ein neuen Datensatz hinzufügt (Uhrzeit)
+    users_data = database_read() # Alle Daten von Datenbank werden gelesen
+    if name in users_data: # Prüfen, ob der Name in der Datenbank existiert
+        users_data[name]["start_time"] = int(time.time()) # Wenn ja, fügt neuen Datensatz "start_time" zum User hinzu: Value ist die momentane Uhrzeit
+        database_save(users_data) # Speichert neue Daten in die Textdatei.
 
+def end_time(name):
+    users_data = database_read() # Alle Daten von Datenbank werden gelesen
+    if name in users_data: # Prüfen, ob der Name in der Datenbank existiert
+        user = users_data[name]
+        users_data[name]['end_time'] = int(time.time()) # Wenn ja, fügt neuen Datensatz "end_time" zum User hinzu: Value ist die momentane Uhrzeit
+        if 'total_time' not in user: # Wenn der Datensatz "total_time" nicht im User existiert, dann den Datensatz mit dem Wert 0 hinzufügen
+            user['total_time'] = 0
+        else:
+            user['total_time'] = user['total_time'] + (user['end_time'] - user['start_time']) # Sonst, aus den beiden Uhrzeiten berechnen und mit dem bestehenden Wert addieren
+        database_save(users_data) # Speichert neue Daten in die Textdatei.
