@@ -9,15 +9,19 @@
             <br>
             <h1>Hallo {{ user['name'] }}!</h1>
             <br><br>
+
+            {% if 'start_time' not in user %}
             <h5>Drücke auf START, sobald Du mit der Arbeit beginnst.</h5>
             <form method="POST" action="{{ url_for('start', name=user['name']) }}">
                 <button class="btn btn-outline-success" type="submit">START</button>
                 </form>
+                {% else %}
                 <br><hr><br>
             <h5>Sobald Du die Arbeit beendet hast, drücke auf ENDE.</h5>
             <form method="POST" action="{{ url_for('end', name=user['name']) }}">
                     <button class="btn btn-outline-success" type="submit">ENDE</button>
                     </form>
+                    {% endif %}
             <br><hr>
         </div>
         

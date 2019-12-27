@@ -10,55 +10,55 @@ app = Flask("database")
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html") # Hier übertragen wir die "index.html" Seite
 
 @app.route("/database_data")
 def database_data():
-    users_data = database.database_read()
+    users_data = database.database_read() # Liest alles Datenbank Daten und überträgt sie zu "database.html" 
     return render_template("database.html", users=users_data)
 
 
 @app.route("/add", methods=['GET', 'POST']) 
 def add():
-    if request.method == 'GET':
-        return render_template("add.html")
+    if request.method == 'GET': 
+        return render_template("add.html") # Wenn Methode = GET, dann übertragen wir die "add.html" Seite.
     else:
         name = request.form.get('name')
         hours = request.form.get('hours')
         days = request.form.get('days')
         salary = request.form.get('salary')
-        database.add_user(name, hours, days, salary)
-        return redirect(url_for('index'))
+        database.add_user(name, hours, days, salary) # Hier holen wir die Daten von der Form und fügen Sie dem Nutzer hinzu.
+        return redirect(url_for('index')) # Index Seite wird zurückgegeben/geöffnet.
 
 @app.route("/login", methods=['POST'])
 def login():
-    name = request.form.get('name')
-    user_data = database.get_user(name)
+    name = request.form.get('name') # Username wird von der form geholt
+    user_data = database.get_user(name) # Dieser Name wird genutzt um die dazugehörigen Daten von der Datnebank zu holen
     if user_data:
-        return redirect(url_for('tracker', name=name))
+        return redirect(url_for('tracker', name=name)) # Wenn der User existiert, verlinken wir zur Tracker Seite
     else:
-        return redirect(url_for('index'))
+        return redirect(url_for('index')) # Wenn ncht, dann zurück zum Index / Startseite
 
 @app.route('/tracker')
 def tracker():
-    name = request.args.get('name')
-    user_data = database.get_user(name)
+    name = request.args.get('name') # Hier holen wir den Namen von der URL
+    user_data = database.get_user(name) # Dieser Name wird genutzt um die dazugehörigen Daten von der Datnebank zu holen
     if 'start_time' in user_data and 'end_time' in user_data:
-        return redirect (url_for('result', name=name))
+        return redirect (url_for('result', name=name)) # Sollte man bereits in der Resultatseite sein und das Prgram schliesst, wird man beim Öffnen und nach dem Login direkt zur Resultatseite kommen.
     else:
-        return render_template("tracker.html", user=user_data)
+        return render_template("tracker.html", user=user_data) # Wenn Start- und Endzeit noch nicht existieren, kommt man zur Trackerseite.
 
 @app.route("/start", methods=['POST'])
 def start():
-    name = request.args.get('name')
-    database.start_time(name)
-    return redirect(url_for('tracker', name=name))
+    name = request.args.get('name') # Username von URL holen
+    database.start_time(name) # Datzensatz "start_time" den Userdaten hinzufügen
+    return redirect(url_for('tracker', name=name)) # Redirect zur Trackerseite
 
 @app.route("/end", methods=['POST'])
 def end():
-    name = request.args.get('name')
-    database.end_time(name)
-    return redirect(url_for('result', name=name))
+    name = request.args.get('name') # Username von URL holen
+    database.end_time(name) # Datzensatz "end_time" den Userdaten hinzufügen
+    return redirect(url_for('result', name=name)) # Redirect zur Resultatseite
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

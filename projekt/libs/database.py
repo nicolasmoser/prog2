@@ -31,7 +31,7 @@ def get_user(name): # Funktion, die den Usernamen von der Datenbank ausgibt
         return None # Wenn nein, gibt er nichts zurück.
 
     
-def start_time(time): # Funktion, die einem bestehenden User ein neuen Datensatz hinzufügt (Uhrzeit)
+def start_time(name): # Funktion, die einem bestehenden User ein neuen Datensatz hinzufügt (Uhrzeit)
     users_data = database_read() # Alle Daten von Datenbank werden gelesen
     if name in users_data: # Prüfen, ob der Name in der Datenbank existiert
         users_data[name]["start_time"] = int(time.time()) # Wenn ja, fügt neuen Datensatz "start_time" zum User hinzu: Value ist die momentane Uhrzeit
