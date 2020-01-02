@@ -62,33 +62,33 @@ def end():
 
 @app.route("/result")
 def result():
-    name = request.args.get('name')
-    user = database.get_user(name)
-    hours = int(user['hours'])
-    days = int(user['days'])
-    rate = int(user['salary'])
-    goal = hours * days * 60 * 60
-    current_time = user['end_time'] - user['start_time']
-    total_time = user['total_time']
-    workload = round(total_time / goal, 2) * 100
-    current_hours = current_time // (60 * 60)
-    current_minutes = current_time // 60 - current_hours * 60
-    overtime = current_time - hours * 60 * 60
-    if overtime > 0:
+    name = request.args.get('name') # Username von URL holen
+    user = database.get_user(name) # Daten des User holen
+    hours = int(user['hours']) # Aus Daten integer machen 
+    days = int(user['days']) # Aus Daten integer machen 
+    rate = int(user['salary']) # Aus Daten integer machen 
+    goal = hours * days * 60 * 60 # Aus Daten monatliches Arbeitsziel in Stunden berechnen
+    current_time = user['end_time'] - user['start_time'] # Arbeitszeit des Tages berechnen
+    total_time = user['total_time'] # Gesamte Arbeitszeit des Monats
+    workload = round(total_time / goal, 2) * 100 # Resultat in Prozent auf 2 Kommastellen nach Punkt berechnen
+    current_hours = current_time // (60 * 60)  # Arbeitszeit des Tages in Stunden
+    current_minutes = current_time // 60 - current_hours * 60 # Arbeitszeit des Tages: übrige Minuten
+    overtime = current_time - hours * 60 * 60 # Überstunden des Tages berechnen
+    if overtime > 0: # Überzeit nur berechnen, wenn grösser als 0.
         overtime_hours = overtime // (60 * 60)
         overtime_minutes = overtime // 60 - overtime_hours * 60
     else:
         overtime_hours = 0
         overtime_minutes = 0
     overtime_month = total_time - goal
-    if overtime_month > 0:
+    if overtime_month > 0: # Überzeit nur berechnen, wenn grösser als 0.
         overtime_month_hours = overtime_month // (60 * 60)
         overtime_month_minutes = overtime_month // 60 - overtime_month_hours * 60
     else:
         overtime_month_hours = 0
         overtime_month_minutes = 0
-    earnings = total_time // (60 * 60) * rate
-    goal_earnings = hours * days * rate
+    earnings = total_time // (60 * 60) * rate # Bereits verdientes Geld des Monats berechnen
+    goal_earnings = hours * days * rate # Angestrebtes Gehalt berechnen
     return render_template(
         'result.html',
         user=user,
@@ -103,7 +103,7 @@ def result():
         goal=goal,
         overtime=overtime,
         goal_earnings=goal_earnings
-    )
+    ) # Gibt Daten / Zahlen an Resultatseite weiter
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
