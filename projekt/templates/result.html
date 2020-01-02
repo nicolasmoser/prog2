@@ -9,17 +9,35 @@
             <br>
             <h1>Deine Übersicht</h1>
             <br><br>
-            <h5>Glückwunsch! Du hast heute xx Stunden und xx Minuten gearbeitet.</h5>
+            <h5>Glückwunsch! Du hast heute {{ current_hours }} Stunden und {{ current_minutes }} Minuten gearbeitet.</h5>
             <br><br>
-            <h5>Hier ist deine Monatsanalyse in Zahlen:</h5>
+            <h4>Hier ist deine Monatsanalyse in Zahlen:</h4>
             <br>
-            <h5> - Arbeitspensum in diesem Monat in %: x</h5>
-            <h5> - Überstunden des Tages: x</h5>
-            <h5> - Überstunden des Monats: x</h5>
-            <h5> - In diesm Monat verdientes Geld: x</h5>
+            <h5> - Arbeitspensum in diesem Monat in %: {{ workload }} %</h5>
+            <br>
+            <h5> - Überstunden des Tages: {{ overtime_hours }} Stunden {{ overtime_minutes }} Minuten</h5>
+            <br>
+            <h5> - Überstunden des Monats: {{ overtime_month_hours }} Stunden {{ overtime_month_minutes }} Minuten </h5>
+            <br>
+            <h5> - In diesm Monat verdientes Geld: {{ earnings }} CHF </h5>
             <br><hr><br>
 
-            <h5>Hier ist deine Monatsanalyse als Dashboard:</h5>
+            <h4>Hier ist deine Monatsanalyse als Dashboard:</h4>
+            <br>
+            <div class="form-group">
+                <h5>Arbeitspensum dieses Monats:</h5>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: {{ workload }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        {{ workload }}%
+                    </div>
+                </div>
+            </div>
+            <h5>Verdientes Geld in diesem Monat:</h5>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: {{ workload }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        {{ ((earnings/goal_earnings) * 100) | round(1) }}%
+                    </div>
+                </div>
         </div>
         
     </div>
