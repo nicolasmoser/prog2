@@ -15,4 +15,5 @@ Sobald er nun die Arbeit startet, klickt er auf den "START" Button. Wenn er die 
 Nun kann er mit einem neuen Arbeitstag starten oder direkt einen neuen Monat beginnen, wodurch alle bestehenden Werte auf 0 gestezt werden. Dies geschieht durch das Klicken auf den jeweiligen Button am unteren Ende der Übersichtsseite.
 
 ## Workflow
-![Bild Workflow](https://raw.githubusercontent.com/nicolasmoser/prog2/master/path/to/Workflow.jpg)
+
+![Workflow](https://user-images.githubusercontent.com/55879898/72202289-d1855300-345d-11ea-934f-88fce12493b6.jpg)
