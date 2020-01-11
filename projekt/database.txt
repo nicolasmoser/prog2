@@ -17,7 +17,10 @@
     "name": "Rony",
     "hours": "9",
     "days": "22",
-    "salary": "35"
+    "salary": "35",
+    "start_time": 1577988044,
+    "end_time": 1577988045,
+    "total_time": 0
   },
   "Chrisi": {
     "name": "Chrisi",
@@ -29,7 +32,10 @@
     "name": "Nicolas Moser",
     "hours": "7",
     "days": "25",
-    "salary": "90"
+    "salary": "90",
+    "start_time": 1578736634,
+    "end_time": 1578736634,
+    "total_time": 0
   },
   "Mircea Obreja": {
     "name": "Mircea Obreja",

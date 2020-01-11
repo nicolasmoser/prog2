@@ -105,5 +105,17 @@ def result():
         goal_earnings=goal_earnings
     ) # Gibt Daten / Zahlen an Resultatseite weiter
 
+@app.route("/new-day")
+def new_day():
+    name = request.args.get('name') # Username von URL holen
+    database.FUNKTION
+    return redirect(url_for('tracker', name=name))
+
+@app.route("/new-month")
+def new_day():
+    name = request.args.get('name') # Username von URL holen
+    database.FUNKTION
+    return redirect(url_for('tracker', name=name))
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
