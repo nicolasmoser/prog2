@@ -1,88 +1,20 @@
 {
-  "Nicolas": {
-    "name": "Nicolas",
-    "telefon": "8.5",
-    "start_time": 1577455010,
-    "end_time": 1577455014,
-    "total_time": 0
-  },
-  "Tommy": {
-    "name": "Tommy",
-    "telefon": "8",
-    "start_time": 1577987183,
-    "end_time": 1577987185,
-    "total_time": 0
-  },
-  "Rony": {
-    "name": "Rony",
-    "hours": "9",
-    "days": "22",
-    "salary": "35",
-    "start_time": 1577988044,
-    "end_time": 1577988045,
-    "total_time": 0
-  },
-  "Chrisi": {
-    "name": "Chrisi",
-    "hours": "10",
-    "days": "18",
-    "salary": "24"
-  },
   "Nicolas Moser": {
     "name": "Nicolas Moser",
-    "hours": "7",
-    "days": "25",
-    "salary": "90",
-    "total_time": 1,
-    "start_time": 1578737864,
-    "end_time": 1578737865
-  },
-  "Mircea Obreja": {
-    "name": "Mircea Obreja",
-    "hours": "12",
-    "days": "25",
-    "salary": "130",
-    "start_time": 1577987293,
-    "end_time": 1577987294,
-    "total_time": 0
-  },
-  "Daria": {
-    "name": "Daria",
-    "hours": "25",
-    "days": "23",
-    "salary": "19"
-  },
-  "Rony Hanselmann": {
-    "name": "Rony Hanselmann",
-    "hours": "8.5",
+    "hours": "2",
     "days": "20",
-    "salary": "25",
-    "start_time": 1578737919,
-    "end_time": 1578737921,
-    "total_time": 0
-  },
-  "Fabian Odoni": {
-    "name": "Fabian Odoni",
-    "hours": "10",
-    "days": "18",
-    "salary": "85"
-  },
-  "Raphaela Moser": {
-    "name": "Raphaela Moser",
-    "hours": "8.5",
-    "days": "20",
-    "salary": "40"
+    "salary": "120",
+    "start_time": 1578738523,
+    "end_time": 1578748524,
+    "total_time": 3670
   },
   "Karl Moser": {
     "name": "Karl Moser",
-    "hours": "9",
+    "hours": "10",
     "days": "22",
-    "salary": "135"
-  },
-  "Mircea Frehner": {
-    "name": "Mircea Frehner",
-    "hours": "9",
-    "days": "20",
-    "salary": "120"
+    "salary": "300",
+    "start_time": 1578738553,
+    "end_time": 1578738554,
+    "total_time": 0
   }
 }

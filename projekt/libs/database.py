@@ -48,22 +48,22 @@ def end_time(name):
             user['total_time'] = user['total_time'] + (user['end_time'] - user['start_time']) # Sonst, aus den beiden Uhrzeiten berechnen und mit dem bestehenden Wert addieren
         database_save(users_data) # Speichert neue Daten in die Textdatei.
 
-def reset_day(name):
-    users_data = database_read()
-    if name in users_data:
-        if 'start_time' in users_data[name]:
-            del users_data[name]['start_time']
-        if 'end_time' in users_data[name]:
-            del users_data[name]['end_time']
-        database_save(users_data)
+def reset_day(name): # Funktion, die die Daten 'start_time' und 'end_time' auf löscht, wenn neuer Arbeitstag gestartet wird
+    users_data = database_read() # Alle Daten von Datenbank werden gelesen
+    if name in users_data: # Prüfen, ob der Name in der Datenbank existiert
+        if 'start_time' in users_data[name]: # Prüfen, ob dieser User den Datensatz 'start_time' enthält
+            del users_data[name]['start_time'] # Wenn ja, dann löschen
+        if 'end_time' in users_data[name]: # Prüfen, ob dieser User den Datensatz 'end_time' enthält
+            del users_data[name]['end_time'] # Wenn ja, dann löschen
+        database_save(users_data) # Neue Daten speichern
 
-def reset_month(name):
-    users_data = database_read()
-    if name in users_data:
-        if 'start_time' in users_data[name]:
-            del users_data[name]['start_time']
-        if 'end_time' in users_data[name]:
-            del users_data[name]['end_time']
-        if 'total_time' in users_data[name]:
-            del users_data[name]['end_time']
-        database_save(users_data)
+def reset_month(name): # Gleiche Funktion wie reset_day, löscht aber den Datensatz 'total_time' auch
+    users_data = database_read() # Alle Daten von Datenbank werden gelesen
+    if name in users_data: # Prüfen, ob der Name in der Datenbank existiert
+        if 'start_time' in users_data[name]: # Prüfen, ob dieser User den Datensatz 'start_time' enthält
+            del users_data[name]['start_time'] # Wenn ja, dann löschen
+        if 'end_time' in users_data[name]: # Prüfen, ob dieser User den Datensatz 'end_time' enthält
+            del users_data[name]['end_time'] # Wenn ja, dann löschen
+        if 'total_time' in users_data[name]: # Prüfen, ob dieser User den Datensatz 'total_time' enthält
+            del users_data[name]['end_time'] # Wenn ja, dann löschen
+        database_save(users_data) # Neue Daten speichern
