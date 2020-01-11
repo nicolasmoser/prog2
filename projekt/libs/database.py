@@ -47,3 +47,23 @@ def end_time(name):
         else:
             user['total_time'] = user['total_time'] + (user['end_time'] - user['start_time']) # Sonst, aus den beiden Uhrzeiten berechnen und mit dem bestehenden Wert addieren
         database_save(users_data) # Speichert neue Daten in die Textdatei.
+
+def reset_day(name):
+    users_data = database_read()
+    if name in users_data:
+        if 'start_time' in users_data[name]:
+            del users_data[name]['start_time']
+        if 'end_time' in users_data[name]:
+            del users_data[name]['end_time']
+        database_save(users_data)
+
+def reset_month(name):
+    users_data = database_read()
+    if name in users_data:
+        if 'start_time' in users_data[name]:
+            del users_data[name]['start_time']
+        if 'end_time' in users_data[name]:
+            del users_data[name]['end_time']
+        if 'total_time' in users_data[name]:
+            del users_data[name]['end_time']
+        database_save(users_data)

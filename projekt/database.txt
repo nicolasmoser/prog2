@@ -33,9 +33,9 @@
     "hours": "7",
     "days": "25",
     "salary": "90",
-    "start_time": 1578736634,
-    "end_time": 1578736634,
-    "total_time": 0
+    "total_time": 1,
+    "start_time": 1578737864,
+    "end_time": 1578737865
   },
   "Mircea Obreja": {
     "name": "Mircea Obreja",
@@ -56,7 +56,10 @@
     "name": "Rony Hanselmann",
     "hours": "8.5",
     "days": "20",
-    "salary": "25"
+    "salary": "25",
+    "start_time": 1578737919,
+    "end_time": 1578737921,
+    "total_time": 0
   },
   "Fabian Odoni": {
     "name": "Fabian Odoni",

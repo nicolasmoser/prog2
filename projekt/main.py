@@ -108,13 +108,13 @@ def result():
 @app.route("/new-day")
 def new_day():
     name = request.args.get('name') # Username von URL holen
-    database.FUNKTION
+    database.reset_day(name)
     return redirect(url_for('tracker', name=name))
 
 @app.route("/new-month")
-def new_day():
+def new_month():
     name = request.args.get('name') # Username von URL holen
-    database.FUNKTION
+    database.reset_month
     return redirect(url_for('tracker', name=name))
 
 if __name__ == "__main__":
