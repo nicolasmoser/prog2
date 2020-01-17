@@ -14,7 +14,7 @@ def index():
 
 @app.route("/database_data")
 def database_data():
-    users_data = database.database_read() # Liest alles Datenbank Daten und überträgt sie zu "database.html" 
+    users_data = database.database_read() # Liest alle Daten und überträgt sie zu "database.html" 
     return render_template("database.html", users=users_data)
 
 

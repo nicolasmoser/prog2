@@ -16,5 +16,14 @@
     "start_time": 1578738553,
     "end_time": 1578738554,
     "total_time": 0
+  },
+  "Rony Hanselmann": {
+    "name": "Rony Hanselmann",
+    "hours": "2",
+    "days": "10",
+    "salary": "15",
+    "start_time": 1579162717,
+    "end_time": 1579168117,
+    "total_time": 5400
   }
 }
